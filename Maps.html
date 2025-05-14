@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lokasi Print & Eat</title>
+  <link rel="stylesheet" href="header.css">
+  <!-- <link rel="stylesheet" href="maps.css"> -->
+   <link rel="stylesheet" href="Footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+
+
+    .map-section {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+
+    .map-section iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .info-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1.5rem 2rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      max-width: 320px;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .info-box h2 {
+      margin: 0 0 10px 0;
+      color: #003366;
+      font-size: 1.2rem;
+    }
+
+    .info-box p {
+      margin: 5px 0;
+      font-size: 0.95rem;
+    }
+
+    .info-box a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .info-box a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f0f0f0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <div class="left-group">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/images.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">Digital Printing | Aluminium | Cafe</span>
+          </a>
+        </div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown" onclick="toggleDropdown(event)">
+          <a href="#" class="dropbtn">Services</a>
+          <div class="dropdown-content">
+            <a href="print.html">Printing</a>
+            <a href="cafe.html">Cafe</a>
+            <a href="alu.html">Aluminium</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Information</a></li>
+        <li><a href="Maps.html">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- SECTION MAP -->
+  <section class="map-section">
+    <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.8734053654885!2d125.58179687485288!3d-8.55331979149024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d01e7cf99cd7633%3A0x40af222f4c3f89db!2sPeso%20Printing!5e1!3m2!1sen!2sid!4v1745226103029!5m2!1sen!2sid"
+    width="100%"
+    height="150"
+    style="border:0; border-radius:8px; margin-top: 10px;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <div class="info-box">
+      <h2>Digital Printing | Aluminium | Cafe</h2>
+      <p><strong>Alamat:</strong> Peso Printing, CHWM+MR9, Díli, Timor-Leste</p>
+      <p><strong>Phone:</strong> +670 7372 737</p>
+      <p><a href="https://maps.app.goo.gl/UgQPLCxCtjfZDTMM6" target="_blank">📍 Open in Google Maps</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images.jpeg" alt="Logo Perusahaan" />
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact us</h4>
+        <ul>
+          <li onclick="callNumber('+6281234567890')"> Admin Restourant : +670 7380 8481</li>
+          <li onclick="callNumber('+6281398765432')">Mr. Edo : +670 7475 1071</li>
+          <li onclick="callNumber('+6282123456789')">Mr. Ronny: +670 7372 7373</li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow us</h4>
+        <div class="social-icons">
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" /></a>
+          <!-- <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a> -->
+        </div>
+      </div>
+
+      <div class="footer-location">
+        <h4>Location</h4>
+        <p>Rua de Nu'u Laran, Bairo dos Grillos No.17</p>
+      </div>
+    </div>
+
+</footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Animasi masuk untuk info box
+    window.addEventListener("DOMContentLoaded", () => {
+      const infoBox = document.querySelector(".info-box");
+      if (infoBox) {
+        infoBox.style.opacity = 0;
+        infoBox.style.transform = "translateY(30px)";
+        setTimeout(() => {
+          infoBox.style.opacity = 1;
+          infoBox.style.transform = "translateY(0)";
+        }, 200);
+      }
+    });
+
+    // Smooth scroll ke map dari tombol dengan id tertentu (optional)
+    const mapButton = document.getElementById("goToMap");
+    if (mapButton) {
+      mapButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        const mapSection = document.querySelector(".map-section");
+        if (mapSection) {
+          mapSection.scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    }
+  </script>
+  <script src="header.js"></script>
+</body>
+</html>

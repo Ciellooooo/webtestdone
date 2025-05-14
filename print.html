@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom Printing - Print & Eat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet"/>
+  <!-- <link rel="stylesheet" href="header.css" /> -->
+   <link rel="stylesheet" href="Footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+   * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom right, #f0f8ff, #e4f0ff);
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #1f2937;
+}
+
+section {
+  background-color: #fff;
+  margin: 30px auto;
+  padding: 40px 20px;
+  max-width: 1000px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1a237e;
+  padding-left: 12px;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #3949ab, #5c6bc0);
+  border-image-slice: 1;
+}
+
+
+section p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 16px;
+  text-align: justify;
+}
+
+iframe {
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: 350px;
+  object-fit:contain;
+  border-radius: 10px;
+position: relative;
+top: -20px;
+}
+
+/* Tombol navigasi */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  font-size: 30px;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.slider-btn.prev {
+  left: 10px;
+}
+
+.slider-btn.next {
+  right: 10px;
+}
+
+.slider-btn:hover {
+  background-color: rgba(0,0,0,0.7);
+}
+
+
+
+    /* Font & Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+  
+  /* Section Styling */
+  section {
+    background-color: #fff;
+    margin: 30px auto;
+    padding: 40px 20px;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+  }
+  section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1a237e;
+  padding-left: 12px;
+  border-left: 6px solid;
+  border-image: linear-gradient(to bottom, #3949ab, #5c6bc0);
+  border-image-slice: 1;
+}
+
+  
+  section p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+  
+  /* Image Styling */
+  .small-img {
+    width: 30%;
+    margin: 10px 1.66%;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .small-img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Images */
+  @media (max-width: 768px) {
+    .small-img {
+      width: 45%;
+      margin: 10px 2.5%;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .small-img {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  
+  /* Iframe Styling */
+  iframe {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Dropdown (Optional for reference) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    color: #333;
+    padding: 10px 16px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f0f0f0;
+  }
+
+  .slide {
+  width: 100%;           /* atau ukuran fix, misal 300px */
+  height: 320px;         /* ini bikin ukuran kotak tetap */
+  object-fit: contain;   /* ini bikin gambar muat penuh */
+  border: 2px solid #ccc;
+  padding: 5px;
+  background-color: #fff; /* opsional, biar kelihatan */
+}
+
+/* ==== RESET DAN FONT ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* ==== HEADER ==== */
+header {
+  background: linear-gradient(90deg, #0d47a1, #2196f3);
+  padding: 16px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ==== NAVIGATION ==== */
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ==== LOGO AREA ==== */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  gap: 10px;
+}
+
+.logo-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+.logo-text {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* ==== HAMBURGER ==== */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 20px;
+  top: 16px;
+  z-index: 1100;
+}
+
+.hamburger div {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  border-radius: 4px;
+  margin: 4px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+
+.hamburger.active div:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active div:nth-child(1) {
+  transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+
+
+
+/* ==== NAV LINKS ==== */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a,
+.dropbtn {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.nav-links li a:hover,
+.dropbtn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffcc00;
+}
+
+/* ==== DROPDOWN ==== */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #005bb8;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  flex-direction: column;
+  z-index: 999;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background-color: #004999;
+}
+
+.dropdown.open .dropdown-content {
+  display: flex;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo {
+    order: 1;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .logo a {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo-img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .nav-links {
+    order: 2;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #005bb8;
+  }
+}
+
+/* === DROPDOWN MUNCUL SAAT HOVER DI DESKTOP === */
+@media (min-width: 769px) {
+  .dropdown:hover .dropdown-content {
+    display: flex;
+  }
+}
+
+
+/* ==== Animasi Slide === */
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* ==== Tombol Slider Style Update ==== */
+.slider-btn {
+  background: linear-gradient(to bottom right, #3949ab, #5c6bc0);
+  color: #fff;
+  font-size: 28px;
+  padding: 10px 14px;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.slider-btn:hover {
+  background: linear-gradient(to bottom right, #1a237e, #3f51b5);
+  transform: scale(1.15);
+}
+
+.logo-img {
+  height: 60px;
+  width: 60px;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* bayangan lembut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efek saat hover */
+.logo-img:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="left-group">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/images.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">Digital Printing | Aluminium | Cafe</span>
+          </a>
+        </div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown" onclick="toggleDropdown(event)">
+          <a href="#" class="dropbtn">Services</a>
+          <div class="dropdown-content">
+            <a href="print.html">Printing</a>
+            <a href="cafe.html">Cafe</a>
+            <a href="alu.html">Aluminium</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Information</a></li>
+        <li><a href="Maps.html">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section id="print">
+    <h2>Print</h2>
+    <p>
+      We offer a wide range of printing services to meet your personal and business needs.
+      Our offerings include digital printing for fast and high-quality results, offset printing for large-volume and cost-effective production,
+      as well as screen printing for apparel, merchandise, and promotional materials.
+      Whether you need vibrant marketing materials, custom t-shirts, or premium business cards, 
+      we have the technology and expertise to deliver top-notch results tailored to your requirements.
+    </p>
+  </section>
+
+  <section id="showcase">
+    <h2>Showcase</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" onclick="plusSlides(-1, 0)">&#10094;</button>
+      <div class="slider-wrapper" id="slider1">
+        <div class="slide"><img src="assets/ACRILIK_5-removebg-preview.png" /></div>
+        <div class="slide"><img src="assets/ACRILIK_9-removebg-preview.png" /></div>
+        <div class="slide"><img src="assets/TENDO.png" /></div>
+        <div class="slide"><img src="assets/TUMBLER SCD.png" /></div>
+        <div class="slide"><img src="assets/VWVFBDB.png" /></div>
+        <div class="slide"><img src="assets/MOBIL SD.png" /></div>
+        <div class="slide"><img src="assets/FREEBGB.png" /></div>
+        <div class="slide"><img src="assets/INVITATION Q.png" /></div>
+        <div class="slide"><img src="assets/BAJUUUU.png" /></div>
+      </div>
+      <button class="slider-btn next" onclick="plusSlides(1, 0)">&#10095;</button>
+    </div>
+  </section>
+  
+
+
+  <!-- <section id="maps">
+    <h2>Location</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.8734053654885!2d125.58179687485288!3d-8.55331979149024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d01e7cf99cd7633%3A0x40af222f4c3f89db!2sPeso%20Printing!5e1!3m2!1sen!2sid!4v1745226103029!5m2!1sen!2sid"
+      width="100%" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section> -->
+
+  <section id="contact">
+    <h2>Contact Person</h2>
+    <p>
+      <strong>Printing</strong><br />
+      WhatsApp:<br />
+      Mr. Edo Hogiarto: +670 7475 1071<br />
+      Mr. Ronny: +670 7372 7373
+    </p>
+  </section>
+
+
+
+  <!-- <section id="about">
+    <h2>About Us</h2>
+    <p>
+      Print & Eat is a modern printing space that combines professional printing services 
+      with the relaxed atmosphere of a café — creating a unique and comfortable experience for our customers.
+    </p>
+  </section> -->
+
+  <section id="sales">
+    <h2>Sales & Marketing</h2>
+    <p>
+      Contact our Sales team for information on wholesale pricing, bulk orders, and exclusive promotions. 
+      We’re here to help you get the best deals tailored to your business or event needs.
+    </p>
+  </section>
+
+  <section id="machine">
+    <h2>Machine</h2>
+    <div class="slider-container">
+      <button class="slider-btn prev" onclick="plusSlides(-1, 1)">&#10094;</button>
+      <div class="slider-wrapper" id="slider2">
+        <div class="slide"><img src="assets/WhatsApp Image 2025-04-21 at 3.09.20 PM.jpeg" /></div>
+        <div class="slide"><img src="assets/WhatsApp Image 2025-04-21 at 3.04.27 PM.jpeg" /></div>
+        <div class="slide"><img src="assets/WhatsApp Image 2025-04-21 at 3.08.44 PM.jpeg" /></div>
+        <div class="slide"><img src="assets/WhatsApp Image 2025-04-21 at 3.08.44 PM (1).jpeg" /></div>
+      </div>
+      <button class="slider-btn next" onclick="plusSlides(1, 1)">&#10095;</button>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images.jpeg" alt="Logo Perusahaan" />
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact us</h4>
+        <ul>
+          <li onclick="callNumber('+6281234567890')"> Admin Restourant : +670 7380 8481</li>
+          <li onclick="callNumber('+6281398765432')">Mr. Edo : +670 7475 1071</li>
+          <li onclick="callNumber('+6282123456789')">Mr. Ronny: +670 7372 7373</li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow us</h4>
+        <div class="social-icons">
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" /></a>
+          <!-- <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a> -->
+        </div>
+      </div>
+
+      <div class="footer-location">
+        <h4>Location</h4>
+        <p>Rua de Nu'u Laran, Bairo dos Grillos No.17</p>
+      </div>
+    </div>
+
+</footer>
+
+
+  
+  <script>
+    let slideIndex = [0, 0];
+    const sliders = [
+      document.getElementById("slider1"),
+      document.getElementById("slider2")
+    ];
+  
+    function plusSlides(n, sliderNum) {
+      slideIndex[sliderNum] += n;
+      showSlides(sliderNum);
+    }
+  
+    function showSlides(sliderNum) {
+      const slider = sliders[sliderNum];
+      const slides = slider.querySelectorAll(".slide");
+      if (slideIndex[sliderNum] >= slides.length) slideIndex[sliderNum] = 0;
+      if (slideIndex[sliderNum] < 0) slideIndex[sliderNum] = slides.length - 1;
+  
+      const offset = -slideIndex[sliderNum] * 100;
+      slider.style.transform = `translateX(${offset}%)`;
+    }
+  
+    function autoSlide(sliderNum) {
+      slideIndex[sliderNum]++;
+      showSlides(sliderNum);
+    }
+  
+    window.onload = () => {
+      showSlides(0);
+      showSlides(1);
+      setInterval(() => autoSlide(0), 4000);
+      setInterval(() => autoSlide(1), 4000);
+    };
+  </script>
+  
+  
+ 
+<script src="header.js"></script>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>

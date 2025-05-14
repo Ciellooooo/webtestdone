@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact | Print & Eat</title>
+
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="Footer.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .contact-wrapper {
+      max-width: 1200px;
+      margin: 60px auto 40px;
+      padding: 20px;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-header h1 {
+      font-size: 32px;
+      color: #0066cc;
+    }
+
+    .contact-header p {
+      font-size: 18px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: linear-gradient(to right, #e6f4ff, #ffffff);
+      border: 2px solid #cce5ff;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .contact-card h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #003d99;
+    }
+
+    .contact-card p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background-color: #0072ff;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #005ed6;
+    }
+
+    .info-bottom {
+      text-align: center;
+      margin: 30px 20px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .contact-header h1 {
+        font-size: 26px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .popup-content {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: none;
+  width: 220px;
+  z-index: 999;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hover-popup:hover .popup-content,
+.hover-popup:focus-within .popup-content {
+  display: block;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Support tap on mobile */
+@media (hover: none) and (pointer: coarse) {
+  .hover-popup:active .popup-content {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.contact-card:hover {
+  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.25);
+  transform: translateY(-4px);
+}
+
+.info-extra {
+  margin: 30px auto;
+  text-align: center;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hover-popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-weight: 500;
+  color: #0066cc;
+}
+
+.popup-content {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%) translateY(10px);
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 15px;
+  width: 250px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.popup-content.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  .popup-content {
+    width: 90%;
+    left: 5%;
+    transform: translateY(10px);
+  }
+
+  .popup-content.show {
+    transform: translateY(0);
+  }
+}
+
+.brandLogo{
+  border-radius: 50%;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="left-group">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/images.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">Digital Printing | Aluminium | Cafe</span>
+          </a>
+        </div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown" onclick="toggleDropdown(event)">
+          <a href="#" class="dropbtn">Services</a>
+          <div class="dropdown-content">
+            <a href="print.html">Printing</a>
+            <a href="cafe.html">Cafe</a>
+            <a href="alu.html">Aluminium</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Information</a></li>
+        <li><a href="Maps.html">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<main class="contact-wrapper">
+  <div class="contact-header">
+    <h1>Contact Our Teams</h1>
+    <p>We are ready to assist you. Reach us via WhatsApp below.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h2>Restaurant – Peso Kitchen</h2>
+      <p>+670 7380 8481</p>
+      <a href="https://wa.me/67073808481" target="_blank" class="btn">Chat on WhatsApp</a>
+    </div>
+
+    <div class="contact-card">
+      <h2>Printing – Sales & Marketing</h2>
+      <p>Mr. Edo: +670 7475 1071<br>Mr. Ronny: +670 7372 7373</p>
+      <div class="btn-group">
+        <a href="https://wa.me/67074751071" target="_blank" class="btn">Contact Mr.Edo</a>
+        <a href="https://wa.me/67073727373" target="_blank" class="btn">Contact Mr.Ronny</a>
+      </div>
+    </div>
+
+    <div class="contact-card">
+      <h2>Aluminium – Sales & Marketing</h2>
+      <p>Mr. Rio: +670 7394 9039<br>Mr. Ronny: +670 7372 7373</p>
+      <div class="btn-group">
+        <a href="https://wa.me/67073949039" target="_blank" class="btn">Contact Mr.Rio</a>
+        <a href="https://wa.me/67073727373" target="_blank" class="btn">Contact Mr.Ronny</a>
+      </div>
+    </div>
+</div>
+   
+
+<!-- LOCATION CARD -->
+ <br><br><br>
+
+<div class="contact-header">
+  <h1>Others</h1>
+  <p>all the ways to reach and follow Peso Printing in one place.</p>
+</div>
+
+<br><br>
+<div class="contact-grid">
+<div class="contact-card">
+  <h2>Our Location</h2>
+  <p>Rua de Nu'u Laran, Bairo dos Grillos No.17</p>
+  <iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.8734053654885!2d125.58179687485288!3d-8.55331979149024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d01e7cf99cd7633%3A0x40af222f4c3f89db!2sPeso%20Printing!5e1!3m2!1sen!2sid!4v1745226103029!5m2!1sen!2sid"
+  width="100%"
+  height="150"
+  style="border:0; border-radius:8px; margin-top: 10px;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+
+</div>
+
+<!-- EMAIL CARD -->
+<div class="contact-card">
+  <h2>Email Us</h2>
+  <p style="margin-bottom: 16px;">
+    <a href="mailto:Sales.artesgrafica@gmail.com" style="color:#003d99; text-decoration: underline;">
+      Sales.artesgrafica@gmail.com
+    </a>
+  </p><br><br><br>
+  <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico"
+       alt="Gmail Icon" width="30" style="margin-bottom: 10px;" />
+  <br> 
+  <a href="mailto:Sales.artesgrafica@gmail.com" class="btn">Send Email</a>
+</div>
+  <!-- BRAND/LOGO CARD -->
+  <div class="contact-card">
+    <h2>Our Brand</h2>
+    <p>Digital Printing | Aluminium | Cafe <br> Peso Printing Dili</p>
+    <img src="assets/images.jpeg" alt="Brand Logo" class="brandLogo" />
+  </div>
+  </div>
+
+
+
+
+<br><br>
+
+<!-- SOCIAL MEDIA CARD -->
+<div class="contact-card">
+  <h2>Follow Us</h2>
+  <p>You can get all the latest information, updates, and promotions through our social media channels.</p>
+  <div class="btn-group">
+    <a href="https://www.instagram.com/peso_printing_dili/" target="_blank" class="btn" style="display: flex; align-items: center; gap: 8px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" width="20" height="20" />
+      Instagram
+    </a>
+    <a href="https://www.facebook.com/p/Peso-Printing-Dili-100079473242341/" target="_blank" class="btn" style="display: flex; align-items: center; gap: 8px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" width="20" height="20" />
+      Facebook
+    </a>
+  </div>
+</div>
+</main>
+
+<div class="info-bottom">
+  <p><strong>Note:</strong> We only accept orders via WhatsApp.</p>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-logo">
+      <img src="assets/images.jpeg" alt="Logo Perusahaan" />
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact us</h4>
+      <ul>
+        <li onclick="callNumber('+6281234567890')"> Admin Restourant : +670 7380 8481</li>
+        <li onclick="callNumber('+6281398765432')">Mr. Edo : +670 7475 1071</li>
+        <li onclick="callNumber('+6282123456789')">Mr. Ronny: +670 7372 7373</li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow us</h4>
+      <div class="social-icons">
+        <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
+        <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" /></a>
+        <!-- <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a> -->
+      </div>
+    </div>
+
+    <div class="footer-location">
+      <h4>Location</h4>
+      <p>Rua de Nu'u Laran, Bairo dos Grillos No.17</p>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+  // Scroll animation
+  const cards = document.querySelectorAll('.contact-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach(card => observer.observe(card));
+
+  
+  function setupPopup(triggerId, popupId) {
+    const trigger = document.getElementById(triggerId);
+    const popup = document.getElementById(popupId);
+
+    const show = () => popup.classList.add("show");
+    const hide = () => popup.classList.remove("show");
+
+    // Desktop hover
+    trigger.addEventListener("mouseenter", show);
+    trigger.addEventListener("mouseleave", hide);
+
+    // Mobile click
+    trigger.addEventListener("click", () => {
+      popup.classList.toggle("show");
+    });
+
+    // Optional: click outside to close (mobile)
+    document.addEventListener("click", (e) => {
+      if (!trigger.contains(e.target)) {
+        popup.classList.remove("show");
+      }
+    });
+  }
+
+  setupPopup("location-trigger", "location-popup");
+  setupPopup("email-trigger", "email-popup");
+
+
+
+</script>
+
+<script src="header.js"></script>
+</body>
+</html>

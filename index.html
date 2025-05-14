@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Printing | Aluminium | Cafe</title>
+  <link rel="icon" type="image/png" href="assets/images.jpeg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- <link rel="stylesheet" href="style.css" /> -->
+  <!-- <link rel="stylesheet" href="sidebar.css"> -->
+  <link rel="stylesheet" href="header.css">
+  <!-- <link rel="stylesheet" href="Global.css"> -->
+   <link rel="stylesheet" href="index.css">
+   <link rel="stylesheet" href="Footer.css">
+<style>
+
+
+</style>
+
+</head>
+<body>
+  
+  <header>
+    <nav>
+      <div class="left-group">
+        <div class="hamburger" onclick="toggleMenu()">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="logo">
+          <a href="index.html">
+            <img src="assets/images.jpeg" alt="Logo" class="logo-img">
+            <span class="logo-text">Digital Printing | Aluminium | Cafe</span>
+          </a>
+        </div>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="dropdown" onclick="toggleDropdown(event)">
+          <a href="#" class="dropbtn">Services</a>
+          <div class="dropdown-content">
+            <a href="print.html">Printing</a>
+            <a href="cafe.html">Cafe</a>
+            <a href="alu.html">Aluminium</a>
+          </div>
+        </li>
+        <li><a href="contact.html">Information</a></li>
+        <li><a href="Maps.html">Map</a></li>
+      </ul>
+    </nav>
+  </header>
+
+      
+      <section id="jumbotron">
+        <div class="jumbotron">
+            <h1 class="jumbotron-title" onmouseover="changeTitle(this)" 
+                onmouseout="changeTitleBack(this)"><br>Digital Printing | Aluminium | Cafe
+            </h1>
+            <!-- <h1 class="jumbotron-title">Dapatkan Tips Programming Disini!</h1> -->
+            <div class="header-flex">
+                <div>
+                    <h2 class="jumbotron-text" data-aos="zoom-out-down" data-aos-once="true" data-aos-duration="2000"  data-aos-delay="500" data-aos-easing="ease-in" data-aos-offset="300" >Where Creativity Meets Comfort.
+
+                      At Digital Printing | Aluminium | Cafe, we bring three passions together in one cozy, creative space:
+                       <br> <br>🖨️ High-quality Printing for your business, art, and personal projects. <br>
+                       ☕ A Café where you can sip, relax, and get inspired. <br>
+                       ✨ Aluminium Crafting that transforms metal into masterpieces. <br> <br>
+                       
+                       Whether you're here to print your next big idea, enjoy a delicious latte, or explore unique aluminium designs — you're in the right place. <br><br><span
+                            style="color: #ffffff ;">Print. Eat. Create.</span></h2>
+                            <div class="mini-text-flex">
+                              <p class="mini-text" >Let’s make something amazing together. 💡💙<br>
+
+                                <a href="destinasi.html" class="clickable-text">..</a>
+                              </p>
+
+                          </div>
+                      </div>
+                      <div>
+                        <img onmouseover="changeImage(this)" onmouseout="changeImageBack(this)" 
+                             class="jumbotron-img" src="foto" alt="Jumbotron Image" width="500" height="200" data-aos="fade-down" data-aos-duration="2000" data-aos-delay="500" data-aos-easing="ease-in" data-aos-offset="300">
+                        <img class="jumbotron-img" src="assets/Timor-Leste-Landscape-LR.jpg" alt="" width="auto" height="300">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+      
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <span class="icon">👕</span>
+        <h2>Custom Printing</h2>
+      </div>
+      <p>
+        Bring your ideas to life on t-shirts, tote bags, and more. We offer high-quality, eco-friendly prints for personal or business needs.
+      </p>
+      <a href="print.html" class="button print-btn">View</a> <br>
+      <a href="print.html#showcase" class="clickable-text">Our Showcase</a> <br>
+      <a href="print.html#contact" class="clickable-text">Contact Person</a> 
+    </div>
+  
+
+    <div class="card">
+      <div class="card-header">
+        <span class="icon">☕</span>
+        <h2>Cozy Café</h2>
+      </div>
+      <p>
+        Enjoy a cup of artisanal coffee while waiting for your prints. We offer a relaxing atmosphere, free Wi-Fi, and great pastries.
+      </p>
+      <a href="cafe.html" class="button cafe-btn">View Menu</a>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <span class="icon">🔗</span>
+        <h2>Aluminium</h2>
+      </div>
+      <p>
+        Experience the perfect blend of elegance and strength. Aluminium prints deliver stunning detail with a modern edge
+        </p>
+      <a href="alu.html" class="button alu-btn">View</a>
+    </div>
+</div>
+
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">👤</span>
+      <h2>About Us</h2>
+    </div>
+    <p>
+      Learn about our journey, values, and the passionate team behind Peso Printing, Café, and Aluminium Services.
+    </p>
+    <a href="about.html" class="button print-btn">Read More</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">📞</span>
+      <h2>Contact</h2>
+    </div>
+    <p>
+      Get in touch with our team! Whether it's printing inquiries, aluminium services, or coffee catering, we’re here to help.
+    </p>
+    <a href="contact.html" class="button cafe-btn">Reach Out</a>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="icon">🗺️</span>
+      <h2>Visit Us</h2>
+    </div>
+    <p>
+      Find our location easily. Click to view our map and navigate your way to our shop and café in Dili.
+    </p>
+    <a href="Maps.html" class="button alu-btn">Open Map</a>
+  </div>
+</div>
+
+
+
+<div class="carousel-container">
+  <h2></h2>
+  <div class="carousel-wrapper">
+    <div class="arrow left" onclick="moveSlide(-1)">&#10094;</div>
+    <div class="carousel-track" id="carousel-track">
+      <!-- 15 Gambar Showcase Dummy -->
+      <div class="slide"><img src="assets/images.jpeg" alt="Showcase 1"></div>
+      <div class="slide"><img src="assets/ACRILIK_5-removebg-preview.png" alt="Showcase 2"></div>
+      <div class="slide"><img src="assets/BAJUUUU.png" alt="Showcase 3"></div>
+      <div class="slide"><img src="assets/FBEVFBGBGB.png" alt="Showcase 4"></div>
+      <div class="slide"><img src="assets/FREEBGB.png" alt="Showcase 5"></div>
+      <div class="slide"><img src="assets/GERGR.png" alt="Showcase 6"></div>
+      <div class="slide"><img src="assets/INVITATION Q.png" alt="Showcase 7"></div>
+      <div class="slide"><img src="assets/MOBIL SD.png" alt="Showcase 8"></div>
+      <div class="slide"><img src="assets/REHTH.png" alt="Showcase 9"></div>
+      <div class="slide"><img src="assets/TENDO.png" alt="Showcase 10"></div>
+      <div class="slide"><img src="assets/WASKITA.png" alt="Showcase 11"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-29 at 10.07.59 PM (1).jpeg" alt="Showcase 12"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-29 at 10.07.59 PM (2).jpeg" alt="Showcase 13"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-29 at 10.07.59 PM.jpeg" alt="Showcase 14"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.05 PM (1).jpeg" alt="Showcase 15"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.03 PM.jpeg" alt="Showcase 16"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.09 PM.jpeg" alt="Showcase 17"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.01 PM.jpeg" alt="Showcase 18"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.07 PM.jpeg" alt="Showcase 19"></div>
+      <div class="slide"><img src="assets/WhatsApp Image 2025-04-26 at 3.06.05 PM (1).jpeg" alt="Showcase 20"></div>
+
+    </div>
+    <div class="arrow right" onclick="moveSlide(1)">&#10095;</div>
+  </div>
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- Wave Separator (Putih ke Biru) -->
+<!-- <div class="wave-separator">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e4f0ff" fill-opacity="1" d="M0,128L60,154.7C120,181,240,235,360,224C480,213,600,139,720,122.7C840,107,960,149,1080,181.3C1200,213,1320,235,1380,245.3L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
+</div> -->
+
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="cta-container">
+    <div class="cta-content">
+      <h2>Why Choose Us?</h2>
+      <p>We’re not just another printing and design service. We are a creative ecosystem where your ideas come to life. Whether you’re launching a business, refreshing your brand, or just need a standout menu — we’ve got your back.</p>
+
+      <div class="cta-features">
+        <div class="feature-box">
+          <h4>💡 Creative Approach</h4>
+          <p>We don't just print. We think. We plan. We design. We deliver impact.</p>
+        </div>
+        <div class="feature-box">
+          <h4>⚡ Fast Delivery</h4>
+          <p>Time matters. We’re built for speed, without cutting corners.</p>
+        </div>
+        <div class="feature-box">
+          <h4>🔧 Custom Crafting</h4>
+          <p>Unique aluminium builds tailored to your needs and space.</p>
+        </div>
+        <div class="feature-box">
+          <h4>☕ Relax & Create</h4>
+          <p>Brainstorm ideas while enjoying premium coffee at our café.</p>
+        </div>
+        <div class="feature-box">
+          <h4>🔍 Quality Control</h4>
+          <p>Every detail matters. Our team ensures it’s done right the first time.</p>
+        </div>
+        <div class="feature-box">
+          <h4>📞 Personal Support</h4>
+          <p>Real people, real care. Contact us anytime — we're here to help.</p>
+        </div>
+      </div>
+
+      <a href="contact.html" class="cta-button">Let’s Build Something Awesome</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images.jpeg" alt="Logo Perusahaan" />
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contact us</h4>
+        <ul>
+          <li onclick="callNumber('+6281234567890')"> Admin Restourant : +670 7380 8481</li>
+          <li onclick="callNumber('+6281398765432')">Mr. Edo : +670 7475 1071</li>
+          <li onclick="callNumber('+6282123456789')">Mr. Ronny: +670 7372 7373</li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow us</h4>
+        <div class="social-icons">
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" /></a>
+          <a href="contact.html"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" /></a>
+          <!-- <a href="#"><img src="youtube-icon.png" alt="YouTube" /></a> -->
+        </div>
+      </div>
+
+      <div class="footer-location">
+        <h4>Location</h4>
+        <p>Rua de Nu'u Laran, Bairo dos Grillos No.17</p>
+      </div>
+    </div>
+
+</footer>
+
+  
+  <script src="script.js"></script>
+
+ 
+
+
+</body>
+</html>
